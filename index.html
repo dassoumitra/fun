@@ -1,0 +1,106 @@
+
+ <html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   3D Carousel
+  </title>
+  <style>
+   body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(120, 146, 161);
+            overflow: hidden;
+        }
+
+        .carousel {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+        .carousel img {
+            position: absolute;
+            aspect-ratio: auto;
+            transition: transform 0.3s ease;
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(206, 4, 163, 0.5);
+        }
+
+        .carousel img:hover{
+          transform: scale(1.1);
+          cursor: pointer;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .carousel img:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
+        .carousel img:nth-child(2) { transform: rotateY(60deg) translateZ(200px); }
+        .carousel img:nth-child(3) { transform: rotateY(120deg) translateZ(200px); }
+        .carousel img:nth-child(4) { transform: rotateY(180deg) translateZ(200px); }
+        .carousel img:nth-child(5) { transform: rotateY(240deg) translateZ(200px); }
+        .carousel img:nth-child(6) { transform: rotateY(300deg) translateZ(200px); }
+
+       
+        
+        /* .msg p{
+          text-emphasis-color: red;
+          text-align: center;
+          text-wrap: ;
+          
+          position: relative;
+        } */
+        .hover-image {
+            width: 300px;
+            height: auto;
+            cursor: pointer; /* Change cursor when hovering over the image */
+        }
+  </style>
+ </head>
+ <body>
+  <audio id="hoverAudio">
+    <source src="Ringtone (1).mp3" type="audio/mpeg">
+</audio>
+  <div class="carousel">
+   <img alt="Person smiling" height="150" src="priti\img2.jpg" width="100" class="hover-image" id="image"/>
+   <img alt="Person wearing a colorful hat" height="150" src="priti\img4.jpg" width="100" class="hover-image" id="image"/>
+   <img alt="Person in a yellow outfit" height="150" src="priti\img3.jpg" width="100" class="hover-image" id="image"/>
+   <img alt="Person in a red outfit with hands together" height="150" src="priti\img2.jpg" width="100" class="hover-image" id="image"/>
+   <img alt="Person smiling outdoors" height="150" src="priti\img4.jpg" width="100" class="hover-image" id="image"/>
+   <img alt="Person in traditional attire" height="150" src="priti\image1.jpg" width="100" class="hover-image" id="image"/>
+  </div>
+  <!-- <div class="msg"> 
+    <p>I MISS YOU</p>
+  </div> -->
+
+  <script>
+    // JavaScript to play audio on hover
+    const image = document.getElementById("image");
+    const audio = document.getElementById("hoverAudio");
+
+    image.addEventListener("mouseenter", function() {
+        audio.play();
+    });
+
+    image.addEventListener("mouseleave", function() {
+        audio.pause();
+        audio.currentTime = 0; // Reset the audio to the beginning
+    });
+</script>
+ </body>
+</html>
